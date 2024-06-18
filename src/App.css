@@ -1,0 +1,28 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(145deg, #333, #222);
+
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transition: margin-left 0.3s;
+}
+
+.main-container.with-sidebar {
+  margin-left: 250px;
+  
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px;
+  background: linear-gradient(145deg, #333, #222);
+
+}

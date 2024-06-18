@@ -1,0 +1,81 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(145deg, #333, #222);
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  .header-logo {
+    height: 40px; /* Adjust the size as needed */
+    padding-left: 70px;
+  }
+  .menu-icon,
+  .new-chat-icon {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 10px;
+    border-radius: 5px;
+  }
+
+  .menu-icon {
+    font-size: 24px; /* Adjust font size for the menu icon */
+    margin-right: 0; /* Remove margin to eliminate gap */
+  }
+
+  .new-chat-icon {
+    background-color: #3498db;
+  }
+  
+  .header-title {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+ /* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    /* Adjust header padding */
+    .header {
+      padding: 10px;
+    }
+  
+    /* Adjust button font size and padding */
+    .menu-icon,
+    .new-chat-icon {
+      font-size: 18px; /* Slightly larger font size for readability */
+      padding: 5px;
+    }
+  
+    /* Adjust header title font size */
+    .header-title {
+      font-size: 20px;
+    }
+  }
+  
+  /* Additional responsive styles for even smaller screens */
+  @media (max-width: 480px) {
+    /* Adjust header padding */
+    .header {
+      padding: 5px 10px;
+    }
+  
+    /* Adjust button font size and padding */
+    .menu-icon,
+    .new-chat-icon {
+      font-size: 16px; /* Adjust font size for very small screens */
+      padding: 3px 6px; /* Adjust padding for very small screens */
+    }
+  
+    /* Adjust header title font size */
+    .header-title {
+      font-size: 18px; /* Adjust font size for very small screens */
+    }
+  }

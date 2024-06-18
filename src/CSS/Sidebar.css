@@ -1,0 +1,86 @@
+/* Sidebar.css */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(145deg, #333, #222);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    transition: width 0.3s;
+    overflow: hidden; /* Hide overflowing content during transition */
+
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+
+.profile-name {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.sidebar-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar-item {
+    width: 100%;
+}
+
+.sidebar-item a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background 0.3s, padding-left 0.3s, padding 0.3s; /* Add transition to padding */
+}
+
+.sidebar-icon {
+    margin-right: 10px;
+}
+
+.sidebar-item a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
+}
+
+.sidebar-item a:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-item a:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+.header-logo {
+    height: 40px; /* Adjust the size as needed */
+    padding-right: 70px;
+  }
