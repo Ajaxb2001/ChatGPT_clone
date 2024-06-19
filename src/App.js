@@ -32,6 +32,14 @@ function App() {
     );
   }, []);
 
+  const handleDeleteMessages = useCallback((chatId) => {
+    setChats((prevChats) =>
+      prevChats.map((chat) =>
+        chat.id === chatId ? { ...chat, messages: [] } : chat
+      )
+    );
+  }, []);
+
   const activeChat = chats.find((chat) => chat.id === activeChatId);
 
   return (
@@ -47,6 +55,7 @@ function App() {
             onSendMessage={(message) =>
               handleSendMessage(activeChatId, message)
             }
+            onDeleteMessages={() => handleDeleteMessages(activeChatId)}
           />
         </div>
         <Footer />

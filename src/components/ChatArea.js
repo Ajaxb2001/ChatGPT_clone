@@ -1,17 +1,33 @@
-import React, { useState } from "react";
-import { FaTelegramPlane } from "react-icons/fa"; // Import the clear icon
+import React, { useState, useEffect } from "react";
+import { FaTelegramPlane, FaTrash } from "react-icons/fa";
 import "../CSS/ChatArea.css";
 
-const ChatArea = ({ messages, onSendMessage }) => {
+const ChatArea = ({ messages, onSendMessage, onDeleteMessages }) => {
   const [input, setInput] = useState("");
-  const [showPrompt, setShowPrompt] = useState(true); // State to control the visibility of the prompt
+  const [showPrompt, setShowPrompt] = useState(true);
+
+  useEffect(() => {
+    if (messages.length === 0) {
+      setShowPrompt(true);
+    }
+  }, [messages]);
+
+  useEffect(() => {
+    if (input.trim() === "") {
+      const promptTimeout = setTimeout(() => {
+        setShowPrompt(true);
+      }, 5000);
+
+      return () => clearTimeout(promptTimeout);
+    }
+  }, [input]);
 
   const handleSend = () => {
     if (input.trim()) {
       onSendMessage({ text: input, sender: "user" });
       setInput("");
-      setShowPrompt(false); // Hide the prompt after sending a message
-      // Simulate bot response for demonstration purposes
+      setShowPrompt(false);
+
       setTimeout(() => {
         onSendMessage({
           text: "This is a placeholder response from ChatGPT",
@@ -29,8 +45,12 @@ const ChatArea = ({ messages, onSendMessage }) => {
 
   return (
     <div className="chat-area">
-      {showPrompt && <p className="help-prompt">How can I help you today?</p>}{" "}
-      {/* Conditional rendering */}
+      <div className="header">
+        {showPrompt && <p className="help-prompt">How can I help you today?</p>}
+        <button onClick={onDeleteMessages} className="delete-button">
+          <FaTrash className="delete-icon" />
+        </button>
+      </div>
       <div className="messages">
         {messages.map((message, index) => (
           <div key={index} className={`message ${message.sender}`}>
@@ -43,7 +63,7 @@ const ChatArea = ({ messages, onSendMessage }) => {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyPress} // Call handleKeyPress on key down
+          onKeyDown={handleKeyPress}
           placeholder="Type a message..."
           className="input-field"
         />

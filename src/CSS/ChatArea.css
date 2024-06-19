@@ -86,7 +86,18 @@
     justify-content: center;
     transition: background-color 0.2s;
   }
+  .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fefefe;
+    display: flex;
+    align-items: center;
+  }
   
+  .delete-icon {
+    font-size: 1.2em;
+  }
   .send-button:hover {
     background-color: #218838;
   }
